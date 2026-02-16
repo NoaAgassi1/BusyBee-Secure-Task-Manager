@@ -1,0 +1,57 @@
+// // שינוי: מחרוזת ריקה במקום כתובת קשיחה.
+// // זה גורם לדפדפן להשתמש בפורט ובפרוטוקול הנוכחיים (HTTPS)
+// const baseUrl = "";
+
+// // Helper function to retrieve a cookie by name
+// function getCookie(name) {
+//     const value = `; ${document.cookie}`;
+//     const parts = value.split(`; ${name}=`);
+//     if (parts.length === 2) return parts.pop().split(';').shift();
+// }
+
+// async function sendPost(path, jsonOrFormData) {
+//     const csrfToken = getCookie("XSRF-TOKEN");
+
+//     const headers = {
+//         "X-XSRF-TOKEN": csrfToken // Include the CSRF token in the headers
+//     };
+//     if (!(jsonOrFormData instanceof FormData)) {
+//         headers["Content-Type"] = "application/json";
+//         jsonOrFormData = JSON.stringify(jsonOrFormData);
+//     }
+
+//     const response = await fetch(`${baseUrl}${path}`, {
+//         method: "POST",
+//         headers: headers,
+//         body: jsonOrFormData
+//     });
+//     return response;
+// }
+
+const baseUrl = "";
+
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+async function sendPost(path, jsonOrFormData) {
+    const csrfToken = getCookie("XSRF-TOKEN"); // קריאה לטוקן
+
+    const headers = {
+        "X-XSRF-TOKEN": csrfToken // הוספת הטוקן להדרים (חובה!)
+    };
+
+    if (!(jsonOrFormData instanceof FormData)) {
+        headers["Content-Type"] = "application/json";
+        jsonOrFormData = JSON.stringify(jsonOrFormData);
+    }
+
+    const response = await fetch(`${baseUrl}${path}`, {
+        method: "POST",
+        headers: headers,
+        body: jsonOrFormData
+    });
+    return response;
+}

@@ -1,0 +1,77 @@
+# Query: LOGGER
+
+94 results - 15 files
+
+spoilers\data_ingestion\controller\CommentsUploadController.java:
+   9: import org.slf4j.Logger;
+  10: import org.slf4j.LoggerFactory;
+  26:     private static final Logger LOGGER = LoggerFactory.getLogger(CommentsUploadController.class);
+
+spoilers\data_ingestion\controller\ExportImportController.java:
+   5: import org.slf4j.Logger;
+   6: import org.slf4j.LoggerFactory;
+  23:     private static final Logger LOGGER = LoggerFactory.getLogger(ExportImportController.class);
+  48:             LOGGER.error("Failed to serialize tasks for export", e);
+
+src\main\java\com\securefromscratch\busybee\auth\AuthenticationEvents.java:
+   3: import org.slf4j.Logger;
+   4: import org.slf4j.LoggerFactory;
+  13:     private static final Logger LOGGER = LoggerFactory.getLogger(AuthenticationEvents.class);
+  18:         LOGGER.info("LOGIN success user={} roles={}", auth.getName(), auth.getAuthorities());
+  25:         LOGGER.warn("LOGIN failed user={} reason={}", user, reason);
+
+src\main\java\com\securefromscratch\busybee\controllers\CommentsUploadController.java:
+   9: import org.slf4j.Logger;
+  10: import org.slf4j.LoggerFactory;
+  26:     private static final Logger LOGGER = LoggerFactory.getLogger(CommentsUploadController.class);
+  48:         LOGGER.info("Request to add comment. TaskID: {}, User: {}", commentFields.taskid(), username);
+  52:             LOGGER.warn("Task not found: {}", commentFields.taskid());
+  57:             LOGGER.info("Adding text-only comment. User: {}", username);
+  62:         LOGGER.info("Processing file upload for TaskID: {}", commentFields.taskid());
+  69:         LOGGER.info("File uploaded successfully. User: {}, Size: {}, Type: {}, StorageID: {}", 
+
+src\main\java\com\securefromscratch\busybee\controllers\GlobalExceptionsHandler.java:
+    4: import org.slf4j.Logger;
+    5: import org.slf4j.LoggerFactory;
+   27:     private static final Logger LOGGER = LoggerFactory.getLogger(GlobalExceptionsHandler.class);
+   36:         LOGGER.warn("event=request_rejected code=NOT_AUTHORIZED endpoint={}", req.getRequestURI());
+   42:         LOGGER.debug("event=request_rejected code=NOT_FOUND endpoint={}", req.getRequestURI());
+   48:         LOGGER.warn("event=request_rejected code=NOT_FOUND endpoint={}", req.getRequestURI());
+   54:         LOGGER.warn("event=request_rejected code=INPUT_INVALID endpoint={}", req.getRequestURI());
+   60:         LOGGER.warn("event=request_rejected code=INPUT_INVALID endpoint={}", req.getRequestURI());
+   78:         LOGGER.warn("event=request_rejected code=INPUT_INVALID endpoint={} fields={}", req.getRequestURI(), fields);
+   85:         LOGGER.warn("event=request_rejected code=UPLOAD_REJECT endpoint={}", req.getRequestURI());
+   91:         LOGGER.warn("event=request_rejected code=UPLOAD_REJECT endpoint={}", req.getRequestURI());
+   97:         LOGGER.error("event=server_error code=SERVER_ERROR endpoint={}", req.getRequestURI(), ex);
+  102:         LOGGER.warn("event=resource_missing code=TASK_NOT_FOUND endpoint={}", req.getRequestURI());
+
+src\main\java\com\securefromscratch\busybee\controllers\ImageController.java:
+   5: import org.slf4j.Logger;
+   6: import org.slf4j.LoggerFactory;
+  26:     private static final Logger LOGGER = LoggerFactory.getLogger(ImageController.class);
+  40:         LOGGER.debug("IMAGE: authName={}, roles={}, img={}",
+  48:         LOGGER.debug("getImage requested img='{}'", img.getName());
+
+src\main\java\com\securefromscratch\busybee\controllers\RegistrationController.java:
+  14: import org.slf4j.Logger;
+  15: import org.slf4j.LoggerFactory;
+  25:     private static final Logger LOGGER = LoggerFactory.getLogger(RegistrationController.class);
+  44:         LOGGER.debug("CSRF token generated for registration endpoint. headerName={}",
+  51:         LOGGER.info("Registration attempt for username='{}'", req.username());
+  59:             LOGGER.info("User '{}' registered successfully with role TRIAL", username);
+  62:             LOGGER.warn("Registration failed: username '{}' already exists", username);
+
+src\main\java\com\securefromscratch\busybee\controllers\TasksController.java:
+   19: import org.slf4j.Logger;
+   20: import org.slf4j.LoggerFactory;
+   32: private static final Logger LOGGER = LoggerFactory.getLogger(TasksController.class);
+   95:         LOGGER.info("Task marked as DONE. TaskID: {}, User: {}", request.taskid(), username);            
+  108:             LOGGER.warn("Task creation failed: Name already exists. Name: '{}', User: {}", name, username);
+  113:             LOGGER.warn("Task creation failed: Invalid participants provided. User: {}", username);
+  127:         LOGGER.info("New task created successfully. TaskID: {}, Name: '{}', User: {}", id, name, username);
+
+src\main\java\com\securefromscratch\busybee\safety\ImageName.java:
+   3: import org.slf4j.Logger;
+   4: import org.slf4j.LoggerFactory;
+  12:     private static final Logger LOGGER = LoggerFactory.getLogger(ImageName.class);
+  52:             LOGGER.error("{} is not a valid character", c);
